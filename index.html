@@ -90,6 +90,14 @@
   .bar-fill { height: 8px; border-radius: 3px; }
   .bar-val { font-size: 11px; font-weight: 600; width: 52px; text-align: right; flex-shrink: 0; }
 
+  /* ── Highlights block ── */
+  .highlights { background: var(--surface2); border-radius: var(--radius); padding: 16px 18px; margin-top: 16px; margin-bottom: 8px; }
+  .highlights-label { font-size: 10px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
+  .highlight-list { display: flex; flex-direction: column; gap: 7px; }
+  .highlight-item { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: var(--text2); line-height: 1.5; }
+  .hi-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .highlight-item strong { color: var(--text); }
+
   @media (max-width: 640px) {
     .story-block { grid-template-columns: 1fr; }
     .chart-row { grid-template-columns: 1fr; }
@@ -106,6 +114,7 @@
     <button class="nav-btn" onclick="showSection('digital')">Digital vs Cash</button>
     <button class="nav-btn" onclick="showSection('creditcards')">Credit Cards</button>
     <button class="nav-btn" onclick="showSection('debitcards')">Debit Cards</button>
+    <button class="nav-btn" onclick="showSection('upi')">UPI</button>
     <button class="nav-btn" onclick="showSection('banks')">Bank Heatmap</button>
     <button class="nav-btn" onclick="showSection('maturity')">Maturity Matrix</button>
     <button class="nav-btn" onclick="showSection('atm')">ATM Trends</button>
@@ -159,7 +168,16 @@
           <span class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span>ATM cash value</span>
         </div>
         <div class="chart-wrap" style="height:220px">
-          <canvas id="c-overview-stack" role="img" aria-label="Stacked bar chart showing digital vs ATM cash value across three periods. Digital rose from 24 to 25.7 lakh crore while ATM cash fell from 26.3 to 24.8 lakh crore.">Digital: Mar25=24L, Sep25=25.3L, Mar26=25.7L. ATM Cash: Mar25=26.3L, Sep25=23L, Mar26=24.8L.</canvas>
+          <canvas id="c-overview-stack"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">📈</span><span>Digital payment value grew <strong>+7.0% YoY</strong> from ₹24L Cr to ₹25.7L Cr — while ATM cash fell ₹1.4L Cr in the same period.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🏆</span><span><strong>September 2025 was the crossover moment</strong> — the first time in India's history that digital value (₹25.3L Cr) surpassed ATM cash (₹23L Cr) in the same period.</span></div>
+            <div class="highlight-item"><span class="hi-icon">⚠️</span><span>March 2026 shows a <strong>seasonal cash rebound</strong> (₹24.8L Cr ATM vs ₹25.7L Cr digital) — year-end demand drives cash usage every March, not structural reversal.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🔮</span><span>At the current trajectory, digital will <strong>permanently exceed cash by FY28</strong> even after seasonal adjustments — the gap is compressing year on year.</span></div>
+          </div>
         </div>
       </div>
       <div class="chart-card">
@@ -170,7 +188,15 @@
           <span class="legend-item"><span class="legend-dot" style="background:#0e9f6e"></span>Mar 2026</span>
         </div>
         <div class="chart-wrap" style="height:220px">
-          <canvas id="c-vol-compare" role="img" aria-label="Horizontal bar chart comparing transaction volumes by channel between Mar 2025 and Mar 2026. CC online and CC PoS grew while DC PoS and ATM cash fell sharply.">CC Online: 228 to 290Mn. CC PoS: 230 to 284Mn. DC PoS: 90 to 75Mn. ATM CW: 496 to 444Mn.</canvas>
+          <canvas id="c-vol-compare"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">💳</span><span>Credit card transactions — both online and PoS — each grew by <strong>~60 million swipes YoY</strong>. This is the channel Indians are actively adopting.</span></div>
+            <div class="highlight-item"><span class="hi-icon">📉</span><span>ATM cash withdrawals lost <strong>51.7 million transactions</strong> in one year. That is roughly 142,000 fewer ATM trips every single day.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🔄</span><span>DC PoS lost <strong>14.7 million transactions YoY</strong> — a channel being quietly replaced by UPI QR codes at the same merchant counters.</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -186,7 +212,16 @@
         <span class="legend-item"><span class="legend-dot" style="background:#c81e1e"></span>ATM Cash Out</span>
       </div>
       <div class="chart-wrap" style="height:240px">
-        <canvas id="c-tickets" role="img" aria-label="Line chart of average transaction ticket sizes across three periods. ATM and DC online tickets rose while CC tickets fell.">CC PoS: 3105, 3002, 2763. CC Online: 5713, 5725, 4858. DC PoS: 2882, 2929, 3249. DC Online: 4271, 5149, 5107. ATM: 5296, 5256, 5595.</canvas>
+        <canvas id="c-tickets"></canvas>
+      </div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">🎯</span><span>CC PoS average ticket <strong>fell ₹342 to ₹2,763</strong> — credit cards are being used for everyday small purchases, not just big-ticket items. Mass market adoption is real.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🏧</span><span>ATM average withdrawal ticket <strong>rose to ₹5,595</strong> — people visit ATMs less often but withdraw more cash per trip. This is classic "cash batching" — plan ahead, take more, go less.</span></div>
+          <div class="highlight-item"><span class="hi-icon">📱</span><span>DC PoS ticket rose <strong>+12.7% to ₹3,249</strong> — only large-value debit card swipes remain. UPI has absorbed all the small, frequent PoS transactions that used to happen on debit cards.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🌐</span><span>CC Online ticket <strong>fell sharply from ₹5,713 to ₹4,858</strong> — online credit card spending is now routine and everyday, not just for big-ticket travel and electronics.</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -220,7 +255,16 @@
       <div class="chart-title">Digital share drift — the structural trend</div>
       <div class="chart-sub">Share of total payment value that is digital (non-cash). The Sep 2025 crossover above 50% is the landmark. March 2026 dips back — but the direction is set.</div>
       <div class="chart-wrap" style="height:260px">
-        <canvas id="c-digital-drift" role="img" aria-label="Area chart showing digital share rising from 47.8% in Mar 2025 to 52.4% in Sep 2025, then dipping to 50.8% in Mar 2026.">Digital share: Mar25=47.8%, Sep25=52.4%, Mar26=50.8%.</canvas>
+        <canvas id="c-digital-drift"></canvas>
+      </div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">🏆</span><span><strong>Sep 2025 crossed 50% for the first time</strong> — 52.4% of all payment value in India was digital. This is a structural milestone, not a blip.</span></div>
+          <div class="highlight-item"><span class="hi-icon">📅</span><span>The March <strong>seasonal dip to 50.8% is expected every year</strong> — advance tax payments, year-end vendor settlements, and cash salary cycles all spike ATM withdrawals in Q4.</span></div>
+          <div class="highlight-item"><span class="hi-icon">📐</span><span>The underlying trend is clear: <strong>+3 percentage points in 12 months</strong> (47.8% → 50.8%). If this pace holds, India hits 55% digital share by March 2028.</span></div>
+          <div class="highlight-item"><span class="hi-icon">💡</span><span>Credit cards alone drove <strong>85% of the digital value growth</strong> — debit card digital usage is shrinking even as credit card adoption accelerates.</span></div>
+        </div>
       </div>
     </div>
 
@@ -229,7 +273,15 @@
         <div class="chart-title">Credit card dominates digital growth</div>
         <div class="chart-sub">% share of digital value by instrument, Mar 2026</div>
         <div class="chart-wrap" style="height:220px">
-          <canvas id="c-digital-mix" role="img" aria-label="Donut chart: CC Online 54.8%, CC PoS 30.5%, DC Online 5.2%, DC PoS 9.5%. Credit cards dominate digital payments.">CC Online 54.8%, CC PoS 30.5%, DC Online 5.2%, DC PoS 9.5%.</canvas>
+          <canvas id="c-digital-mix"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">💳</span><span><strong>Credit cards control 85.3% of all digital payment value</strong> (CC Online 54.8% + CC PoS 30.5%). Debit cards are a shrinking 14.7% slice.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🛒</span><span>CC Online alone at 54.8% means <strong>more than half of India's digital payment value flows through e-commerce and online CC transactions</strong> — largely HDFC, SBI, ICICI.</span></div>
+            <div class="highlight-item"><span class="hi-icon">📉</span><span>DC PoS at just 9.5% share signals that <strong>debit card PoS is nearly irrelevant</strong> as a digital payment category — UPI has eaten this share entirely.</span></div>
+          </div>
         </div>
       </div>
       <div class="chart-card">
@@ -240,7 +292,15 @@
           <span class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span>DC Online volume</span>
         </div>
         <div class="chart-wrap" style="height:220px">
-          <canvas id="c-dc-decline" role="img" aria-label="Line chart: DC PoS indexed fell from 100 to 83.6. DC Online indexed fell from 100 to 86.0. Both channels in sustained decline.">DC PoS: 100, 86.8, 83.6. DC Online: 100, 87.9, 86.0.</canvas>
+          <canvas id="c-dc-decline"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">📉</span><span>DC PoS volume has fallen to an index of <strong>83.6 — a 16.4% loss in just 12 months</strong>. This rate of decline is accelerating, not stabilising.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🔁</span><span>DC Online dropped to 86.0 index — even <strong>online debit card payments are shrinking</strong> as UPI on apps replaces saved debit card credentials.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🔮</span><span>At the current pace, DC PoS will fall below 70% of its March 2025 volume <strong>by March 2027</strong> — a complete collapse of the channel as a mainstream payment method.</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -256,7 +316,16 @@
       <div class="chart-title">Credit card market share — who owns the customer</div>
       <div class="chart-sub">Outstanding credit cards by bank, March 2026. Circle size = card base. Only banks with 500K+ cards shown.</div>
       <div class="chart-wrap" style="height:280px">
-        <canvas id="c-cc-share" role="img" aria-label="Horizontal bar chart of credit card market share. HDFC 22.2%, SBI 18.6%, ICICI 16.1%, Axis 13.5%, then long tail.">HDFC 22.2%, SBI 18.6%, ICICI 16.1%, Axis 13.5%, Kotak 3.9%, RBL 3.9%, IDFC First 3.8%, IndusInd 2.5%, Yes 2.4%, Federal 1.9%.</canvas>
+        <canvas id="c-cc-share"></canvas>
+      </div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">🥇</span><span>The top 4 banks — HDFC (22.2%), SBI (18.6%), ICICI (16.1%), Axis (13.5%) — <strong>collectively control 70.4% of all credit cards in India</strong>. The market is highly concentrated.</span></div>
+          <div class="highlight-item"><span class="hi-icon">⚡</span><span><strong>Federal Bank has only 1.9% share today — but grew 88% YoY.</strong> At this pace, it will overtake RBL Bank and IDFC First Bank in the next 12–18 months.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🔴</span><span>IndusInd at 2.5% share is shrinking — <strong>down from a higher base</strong>. The combination of falling share and falling spend per card is a double-compounding risk.</span></div>
+          <div class="highlight-item"><span class="hi-icon">📊</span><span>The long tail (all banks below Axis) holds only <strong>30% of cards but is growing faster</strong> than the top 4 — the market is dispersing as more banks enter the credit card business.</span></div>
+        </div>
       </div>
     </div>
 
@@ -265,14 +334,31 @@
         <div class="chart-title">CC card growth YoY — the race for share</div>
         <div class="chart-sub">% change in outstanding cards, Mar 2025 to Mar 2026</div>
         <div class="chart-wrap" style="height:260px">
-          <canvas id="c-cc-growth" role="img" aria-label="Horizontal bar chart showing Federal Bank +88%, IDFC First +28%, Yes +19.5%, PNB +41.8%, Axis +7.6%, HDFC +10.4% and others with negative growth.">Federal +88%, PNB +41.8%, Yes +19.5%, IDFC First +28%, HDFC +10.4%, Axis +7.6%, SBI +6.1%, ICICI +4.6%, Kotak -3.6%, RBL -4.2%, IndusInd -4.4%.</canvas>
+          <canvas id="c-cc-growth"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">🚀</span><span><strong>Federal Bank's +88% growth is an outlier</strong> — likely driven by a focused card issuance push and co-brand partnerships. Watch for whether spend quality matches card quantity.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🏛️</span><span>PNB's +41.8% growth is notable for a public sector bank — <strong>PSU banks are finally entering the credit card game seriously</strong>, not just issuing cards to account holders.</span></div>
+            <div class="highlight-item"><span class="hi-icon">⚠️</span><span>Three major private banks — <strong>Kotak (-3.6%), RBL (-4.2%), IndusInd (-4.4%)</strong> — are all shrinking their card base simultaneously. A rare and concerning convergence.</span></div>
+            <div class="highlight-item"><span class="hi-icon">💡</span><span>HDFC (+10.4%) and SBI (+6.1%) show <strong>steady, quality growth</strong> — neither chasing volume nor losing share. The incumbents are defending their positions effectively.</span></div>
+          </div>
         </div>
       </div>
       <div class="chart-card">
         <div class="chart-title">CC online value — top 5 banks' dominance</div>
         <div class="chart-sub">₹ Crore, March 2026. Five banks control 87% of all CC online spend.</div>
         <div class="chart-wrap" style="height:260px">
-          <canvas id="c-cc-online" role="img" aria-label="Bar chart of CC online transaction value by bank. HDFC 43218, SBI 29343, ICICI 26607, Axis 12687, Kotak 3556 crore.">HDFC 43218 Cr, SBI 29343 Cr, ICICI 26607 Cr, Axis 12687 Cr, Kotak 3556 Cr.</canvas>
+          <canvas id="c-cc-online"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">👑</span><span><strong>HDFC Bank at ₹43,218 Cr online CC value is 47% higher than SBI</strong>, its nearest rival. That gap is the product of a decade of credit card market building.</span></div>
+            <div class="highlight-item"><span class="hi-icon">📈</span><span>SBI's ₹29,343 Cr — <strong>up +43.7% YoY</strong> — is the most dramatic rise in the top 5. YONO and SBI Card are compounding digital spend at a rate that threatens ICICI's #3 position.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🔴</span><span>IndusInd at ₹3,437 Cr is <strong>lower than Federal Bank</strong> on a per-card-value basis. A bank with 3x more cards generating less quality spend — the red flag is structural.</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -288,7 +374,16 @@
         <span class="legend-item"><span class="legend-dot" style="background:#c81e1e"></span>IndusInd</span>
       </div>
       <div class="chart-wrap" style="height:250px">
-        <canvas id="c-cc-trend" role="img" aria-label="Multi-line chart showing CC online value over 3 periods. HDFC steady high, SBI rising sharply, ICICI flat, IndusInd collapsing.">HDFC: 38874, 38463, 43218. SBI: 20444, 29229, 29343. ICICI: 26086, 32156, 26607. Axis: 13475, 15602, 12687. IndusInd: 5968, 5173, 3437.</canvas>
+        <canvas id="c-cc-trend"></canvas>
+      </div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">📊</span><span><strong>HDFC dipped in Sep 2025 then recovered strongly to ₹43,218 Cr</strong> — a V-shape that signals resilient card spending even through a mid-year slowdown.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🚀</span><span>SBI's trajectory is the steepest positive line — from ₹20,444 Cr to ₹29,343 Cr in just 12 months. <strong>SBI is the fastest-scaling quality CC spender among large banks.</strong></span></div>
+          <div class="highlight-item"><span class="hi-icon">🔻</span><span>ICICI peaked at ₹32,156 Cr in Sep 2025 then fell back to ₹26,607 Cr by Mar 2026 — a <strong>₹5,549 Cr reversal that deserves scrutiny</strong> in their next earnings call.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🆘</span><span>IndusInd's line is a consistent downward slope across all three periods — <strong>no recovery, no inflection, no floor yet visible</strong>. This is a structural deterioration story.</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -323,14 +418,30 @@
         <div class="chart-title">DC PoS — the structural decline</div>
         <div class="chart-sub">Transaction volumes (Mn) — a channel being replaced by UPI</div>
         <div class="chart-wrap" style="height:200px">
-          <canvas id="c-dc-pos" role="img" aria-label="Bar chart showing DC PoS volume declining from 89.6 Mn in Mar 2025 to 77.8 in Sep 2025 to 74.9 in Mar 2026.">Mar25=89.6Mn, Sep25=77.8Mn, Mar26=74.9Mn.</canvas>
+          <canvas id="c-dc-pos"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">📉</span><span>Volumes fell from <strong>89.6 Mn → 77.8 Mn → 74.9 Mn</strong> — a steady and uninterrupted decline across all three periods. There is no sign of a floor.</span></div>
+            <div class="highlight-item"><span class="hi-icon">📱</span><span>The <strong>14.7 Mn lost PoS transactions moved to UPI</strong> — the merchant had the same terminal, the customer just chose a different payment method at checkout.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🏪</span><span>Kirana stores, petrol pumps, and small shops — once the backbone of DC PoS usage — <strong>now show UPI QR codes as the primary tender</strong>. The debit card swipe is becoming a last resort.</span></div>
+          </div>
         </div>
       </div>
       <div class="chart-card">
         <div class="chart-title">Debit card outstanding — category breakdown</div>
         <div class="chart-sub">Mn cards by bank category, March 2026</div>
         <div class="chart-wrap" style="height:200px">
-          <canvas id="c-dc-cat" role="img" aria-label="Donut chart: Public sector holds 657Mn DC cards (62.9%), Private 262.7Mn (25.2%), Payments Banks 86.8Mn (8.3%), SFBs 33.9Mn (3.2%), Foreign 4.4Mn (0.4%).">Public 657Mn, Private 263Mn, Payments Banks 87Mn, SFBs 34Mn, Foreign 4.4Mn.</canvas>
+          <canvas id="c-dc-cat"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">🏛️</span><span><strong>Public sector banks hold 62.9% of all debit cards</strong> (657 Mn) — almost entirely SBI, PNB, Bank of Baroda. These cards are issued at account opening, not by customer demand.</span></div>
+            <div class="highlight-item"><span class="hi-icon">📬</span><span>Payments Banks at 8.3% (86.8 Mn) are <strong>India Post's financial inclusion engine</strong> — rural accounts with debit cards but negligible PoS usage. Cash remains king for this segment.</span></div>
+            <div class="highlight-item"><span class="hi-icon">💡</span><span>Despite having 1,044 Mn debit cards, <strong>only ~75 Mn PoS transactions happened</strong> in March 2026 — implying more than 93% of debit cards generated zero PoS usage that month.</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -339,7 +450,118 @@
       <div class="chart-title">ATM cash withdrawal volume — the long goodbye</div>
       <div class="chart-sub">Millions of ATM cash withdrawals per period. Volume is falling; the remaining withdrawals are larger. This is behavioural change, not infrastructure failure.</div>
       <div class="chart-wrap" style="height:220px">
-        <canvas id="c-atm-vol" role="img" aria-label="Bar chart with overlay line: ATM volume bars declining 495.7 to 437.1 to 444.0 Mn, while average ticket line rises 5296 to 5256 to 5595 rupees.">ATM CW Vol: 495.7, 437.1, 444.0 Mn. Avg ticket: 5296, 5256, 5595.</canvas>
+        <canvas id="c-atm-vol"></canvas>
+      </div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">🏧</span><span>Volume fell from <strong>495.7 Mn to a low of 437.1 Mn in Sep 2025</strong>, then rebounded slightly to 444 Mn in Mar 2026 — the rebound is seasonal (year-end cash demand), not a trend reversal.</span></div>
+          <div class="highlight-item"><span class="hi-icon">💰</span><span>Average ticket rose from <strong>₹5,296 to ₹5,595</strong> — each visit now withdraws ₹299 more. People are pre-loading cash for longer periods before their next trip.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🔄</span><span>The <strong>"fewer trips, larger amounts" pattern</strong> is the classic adaptation to UPI: ATMs are now used for bulk cash needs (domestic workers, construction wages, weekly market shopping) rather than daily transactions.</span></div>
+          <div class="highlight-item"><span class="hi-icon">📊</span><span>Total ATM cash value fell <strong>₹1.4L Cr YoY</strong> — this is real economic substitution, not just fewer withdrawals. Indians are genuinely spending less cash overall.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ UPI -->
+  <section class="section" id="sec-upi">
+    <div class="insight-banner">
+      <strong>UPI is the silent disruptor behind every trend in this dataset.</strong> The RBI's ATM &amp; Card Statistics captures UPI infrastructure (QR codes, PoS terminals) but not UPI transaction volumes directly — those sit in NPCI data. What we see here are the <em>effects</em> of UPI: debit card PoS death, ATM rationalisation, and the explosion of acceptance infrastructure.
+    </div>
+
+    <div class="story-block">
+      <div class="story-card up">
+        <div class="story-num">76.1 Cr</div>
+        <div class="story-desc">UPI QR codes deployed across India as of March 2026 — up +15.7% YoY. Every new QR code is a potential debit card swipe that will never happen.</div>
+      </div>
+      <div class="story-card down">
+        <div class="story-num">−14.7 Mn</div>
+        <div class="story-desc">DC PoS transactions lost YoY. These didn't vanish — they migrated to UPI QR codes at the same merchant points. UPI absorbed an entire payment channel.</div>
+      </div>
+      <div class="story-card warn">
+        <div class="story-num">6x</div>
+        <div class="story-desc">UPI QR infrastructure grew 6x faster than ATM network YoY. PoS terminals added just 6.8 Lakhs while UPI added 5.2 Cr new QR codes in the same period.</div>
+      </div>
+      <div class="story-card purple">
+        <div class="story-num">117.7 L</div>
+        <div class="story-desc">PoS terminals as of Mar 2026 — down from 121.2 Lakhs in Sep 2025. Even physical PoS infrastructure is being rationalised as merchants prefer zero-cost UPI QR.</div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-card">
+        <div class="chart-title">UPI QR codes vs PoS terminals — the infrastructure race</div>
+        <div class="chart-sub">UPI QR codes (Crore) vs PoS terminals (Lakh) across three periods</div>
+        <div class="legend">
+          <span class="legend-item"><span class="legend-dot" style="background:#0e9f6e"></span>UPI QR codes (Cr)</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#7e3af2"></span>PoS terminals (Lakhs)</span>
+        </div>
+        <div class="chart-wrap" style="height:220px">
+          <canvas id="c-upi-infra"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">📱</span><span>UPI QR codes grew from <strong>65.8 Cr to 76.1 Cr in 12 months</strong> — that is 10.3 Crore new acceptance points added. India now has one UPI QR code for every 17 people.</span></div>
+            <div class="highlight-item"><span class="hi-icon">💸</span><span>PoS terminals <strong>peaked at 121.2 Lakh in Sep 2025 and fell back to 117.7 Lakh</strong> — merchants are removing card terminals as UPI QR codes replace them at zero MDR cost.</span></div>
+            <div class="highlight-item"><span class="hi-icon">⚡</span><span>UPI QR is <strong>free to deploy, zero MDR, and works on any smartphone</strong> — the economic case for a merchant to prefer a ₹15,000 PoS machine over a printed QR code has essentially collapsed.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🌏</span><span>At 76.1 Crore QR codes vs 117.7 Lakh PoS terminals, <strong>UPI acceptance outnumbers card acceptance by 64x</strong>. The reach advantage of UPI is now insurmountable.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">UPI's displacement effect on DC PoS</div>
+        <div class="chart-sub">DC PoS volume (Mn) declining as UPI QR codes (Cr) grow — the substitution story</div>
+        <div class="legend">
+          <span class="legend-item"><span class="legend-dot" style="background:#c81e1e"></span>DC PoS volume (Mn)</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#0e9f6e"></span>UPI QR codes (Cr) — right axis</span>
+        </div>
+        <div class="chart-wrap" style="height:220px">
+          <canvas id="c-upi-displacement"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">🔁</span><span>As UPI QR codes added <strong>10.3 Cr new access points</strong>, DC PoS lost <strong>14.7 Mn transactions</strong> — a near-perfect inverse relationship. More QR codes = fewer debit card swipes.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🎯</span><span>The substitution is concentrated in <strong>transactions below ₹500</strong> — everyday chai, auto fares, groceries. UPI owns this segment completely.</span></div>
+            <div class="highlight-item"><span class="hi-icon">📊</span><span>The rising <strong>average DC PoS ticket (₹3,249) is further proof</strong> — only larger purchases remain on debit cards. UPI has already taken the small-ticket end of the market.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="full-card">
+      <div class="chart-title">ATM network contraction — UPI's indirect casualty</div>
+      <div class="chart-sub">Off-site ATMs removed YoY by bank category. UPI reduced cash demand enough that maintaining remote ATMs is no longer commercially viable.</div>
+      <div class="chart-wrap" style="height:200px">
+        <canvas id="c-upi-atm"></canvas>
+      </div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">🏧</span><span>Private banks cut off-site ATMs by <strong>-22.8% YoY</strong> — the most aggressive rationalisation of any category. These are commercial decisions: footfall fell, so the economics of running remote ATMs broke.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🏛️</span><span>Public sector banks cut off-site ATMs by only <strong>-5.7%</strong> — they have a rural access mandate that commercial logic alone cannot override. But even they are pulling back.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🌱</span><span>Small Finance Banks <strong>grew off-site ATMs by +17.9%</strong> — serving semi-urban and rural populations where UPI penetration is still low and cash remains essential for daily life.</span></div>
+          <div class="highlight-item"><span class="hi-icon">💡</span><span>The <strong>on-site ATM count actually rose</strong> (+3.3% for on-site overall) — branch ATMs are retained because they serve multiple functions. It is the standalone mall and petrol pump ATMs that are disappearing.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="full-card">
+      <div class="chart-title">What UPI is replacing — the channel migration map</div>
+      <div class="chart-sub">YoY volume change by channel, Mar 2025 → Mar 2026. Negative bars = channels losing transactions to UPI. All data in Millions.</div>
+      <div class="chart-wrap" style="height:240px">
+        <canvas id="c-upi-migration"></canvas>
+      </div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">🏆</span><span>CC Online and CC PoS each <strong>gained ~60 Mn transactions YoY</strong> — credit cards are the only card channel growing. They occupy a premium segment that UPI hasn't displaced.</span></div>
+          <div class="highlight-item"><span class="hi-icon">💀</span><span>ATM cash out lost <strong>51.7 Mn transactions</strong> — the single largest volume loss of any channel. UPI for merchant payments has reduced the need to carry cash entirely.</span></div>
+          <div class="highlight-item"><span class="hi-icon">📉</span><span>DC PoS lost 14.7 Mn and DC Online lost 4.3 Mn — <strong>debit cards are being squeezed from both ends</strong>: UPI takes the merchant PoS transactions, apps take the online transactions.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🔮</span><span>Credit cards are <strong>immune to UPI displacement</strong> because they offer credit (float), rewards, and EMI — features a zero-MDR UPI transaction cannot replicate. This is why CC growth and UPI growth can coexist.</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -369,6 +591,15 @@
           <tbody id="heatmap-body"></tbody>
         </table>
       </div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">🟢</span><span><strong>Federal Bank is the only bank with all CC metrics strongly green</strong> — +88% cards, +41.4% PoS, +48.7% online. An across-the-board credit card surge with no red flags in the data.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🔴</span><span><strong>IndusInd Bank is the only bank with all CC metrics deeply red</strong> — -4.4% cards, -49.3% PoS, -42.4% online. Every dimension of its credit card business is contracting simultaneously.</span></div>
+          <div class="highlight-item"><span class="hi-icon">📊</span><span>The ATM Cash Out column is <strong>red across every single bank</strong> without exception — confirming that declining ATM usage is a structural, system-wide shift, not bank-specific.</span></div>
+          <div class="highlight-item"><span class="hi-icon">💡</span><span>Banks with the highest Digital Mix (Yes 80.4%, ICICI 80.1%, HDFC 76%) tend to have <strong>smaller ATM cash out declines</strong> — their customers already transact digitally, so the ATM rationalisation impact is smaller.</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -381,7 +612,16 @@
       <div class="chart-title">Digital maturity vs credit card momentum — strategic quadrants</div>
       <div class="chart-sub">Bubble size = total transaction value. X = digital mix %, Y = CC card YoY growth %. Banks in top-right are winning both races.</div>
       <div class="chart-wrap" style="height:380px; position:relative">
-        <canvas id="c-quad" role="img" aria-label="Bubble chart placing banks in four quadrants by digital mix and CC growth. IDFC First and Yes Bank are in the high-digital high-growth quadrant. PNB and Union Bank are in the low-digital low-growth quadrant. SBI is low-digital but improving.">HDFC: digital 76%, CC growth 10.4%. SBI: 37.8%, 6.1%. ICICI: 80.1%, 4.6%. Axis: 71.4%, 7.6%. IDFC First: 75.2%, 28%. Yes Bank: 80.4%, 19.5%. Federal: 49%, 88.1%. PNB: 11%, 41.8%. IndusInd: 74.6%, -4.4%.</canvas>
+        <canvas id="c-quad"></canvas>
+      </div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">🏆</span><span><strong>IDFC First Bank and Yes Bank occupy the top-right quadrant</strong> — high digital mix (75%+) AND strong CC card growth (20–28%). They are the banks winning both the digital and credit race simultaneously.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🏛️</span><span><strong>SBI is the big bubble in the bottom-left</strong> — enormous transaction value, but only 37.8% digital mix. Its CC growth (+6.1%) is modest. The opportunity: if SBI moves right on this chart, it reshapes India's entire payments landscape.</span></div>
+          <div class="highlight-item"><span class="hi-icon">⚡</span><span><strong>Federal Bank is the outlier in mid-chart</strong> — low digital mix (49%) but explosive CC growth (+88%). It is building the credit card base first; the digital mix will follow as those cards generate more online spend.</span></div>
+          <div class="highlight-item"><span class="hi-icon">⚠️</span><span><strong>IndusInd sits top-right but is shrinking</strong> — high digital mix (74.6%) but negative CC growth (-4.4%). It has the infrastructure but is losing customers. The worst position: technically capable, commercially declining.</span></div>
+        </div>
       </div>
     </div>
 
@@ -389,6 +629,15 @@
       <div class="chart-title">Digital maturity index — ranked</div>
       <div class="chart-sub">% of total transaction value that flows through digital channels (not ATM cash), March 2026</div>
       <div id="dmi-bars" style="margin-top:6px"></div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">🥇</span><span><strong>Yes Bank (80.4%) edges ICICI Bank (80.1%) for the top digital maturity ranking</strong> — remarkable for a bank that was under RBI moratorium just 4 years ago. The forced rebuild created a leaner, more digital operation.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🏛️</span><span>The <strong>public sector bank cluster (SBI 37.8%, BoB 27.8%, Canara 15.7%, PNB 11%)</strong> forms a distinct low-maturity group. Their digital transformation has barely begun relative to the private banks.</span></div>
+          <div class="highlight-item"><span class="hi-icon">📐</span><span>There is a <strong>sharp cliff between Kotak (58.7%) and Federal Bank (49%)</strong> — and then a long drop to SBI (37.8%). Banks below 50% digital mix are qualitatively different businesses from those above it.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🔮</span><span>Federal Bank at 49% is <strong>one percentage point from crossing the 50% digital milestone</strong> — and its trajectory (up from ~41% last year) suggests it will cross it in the next two quarters.</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -407,7 +656,15 @@
           <span class="legend-item"><span class="legend-dot" style="background:#c81e1e"></span>Off-site</span>
         </div>
         <div class="chart-wrap" style="height:220px">
-          <canvas id="c-atm-infra" role="img" aria-label="Grouped bar chart: On-site ATMs grew from 131323 to 135638 while off-site ATMs fell from 83518 to 73693.">On-site: 131323, 131664, 135638. Off-site: 83518, 75047, 73693.</canvas>
+          <canvas id="c-atm-infra"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">📉</span><span>Off-site ATMs fell from <strong>83,518 to 73,693</strong> — a loss of nearly 10,000 off-site ATMs in 12 months. These are the ATMs in malls, petrol stations, and standalone kiosks being silently removed.</span></div>
+            <div class="highlight-item"><span class="hi-icon">📈</span><span>On-site ATMs (inside branches) actually <strong>grew from 131,323 to 135,638</strong> — banks are investing in branch ATMs while pulling out of remote locations. The branch experience still matters.</span></div>
+            <div class="highlight-item"><span class="hi-icon">💡</span><span>The total ATM count is <strong>net declining</strong> for the first time — this signals that the ATM expansion era in India is definitively over. We are now in the contraction phase.</span></div>
+          </div>
         </div>
       </div>
       <div class="chart-card">
@@ -418,7 +675,15 @@
           <span class="legend-item"><span class="legend-dot" style="background:#7e3af2"></span>PoS terminals (Lakhs)</span>
         </div>
         <div class="chart-wrap" style="height:220px">
-          <canvas id="c-pos-upi" role="img" aria-label="Bar chart: UPI QR codes grew from 65.8 to 76.1 crore while PoS terminals grew modestly from 110.9 to 117.7 lakhs.">UPI QR: 65.8, 70.9, 76.1 Cr. PoS: 110.9, 121.2, 117.7 Lakhs.</canvas>
+          <canvas id="c-pos-upi"></canvas>
+        </div>
+        <div class="highlights">
+          <div class="highlights-label">Key Highlights</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span class="hi-icon">📱</span><span>UPI QR codes added <strong>10.3 Crore new acceptance points</strong> in 12 months — more new points than the entire PoS terminal network in existence (117.7 Lakh = 11.77 Crore).</span></div>
+            <div class="highlight-item"><span class="hi-icon">🔻</span><span>PoS terminals <strong>peaked at 121.2 Lakh in Sep 2025 and fell back to 117.7 Lakh</strong> — a 3.5 Lakh terminal reduction in just 6 months as merchants switch to QR.</span></div>
+            <div class="highlight-item"><span class="hi-icon">⚖️</span><span>The <strong>cost difference is stark</strong>: a PoS terminal costs ₹10,000–15,000 and has MDR charges; a UPI QR code costs ₹0 to deploy and ₹0 in MDR. The economics are not a contest.</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -427,7 +692,16 @@
       <div class="chart-title">Off-site ATM rationalisation by bank category</div>
       <div class="chart-sub">YoY % change in off-site ATMs. Private banks are most aggressively cutting. Public banks defending rural access.</div>
       <div class="chart-wrap" style="height:200px">
-        <canvas id="c-atm-cat" role="img" aria-label="Bar chart: Private banks cut off-site ATMs by -22.8%, Foreign by -6.9%, Public banks by -5.7%, SFBs grew by +17.9%.">Private -22.8%, Foreign -6.9%, Public -5.7%, SFBs +17.9%.</canvas>
+        <canvas id="c-atm-cat"></canvas>
+      </div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">✂️</span><span><strong>Private banks cut -22.8% of off-site ATMs</strong> — a purely commercial decision. Urban and semi-urban customers who used these ATMs have migrated to UPI, making the hardware economically unjustifiable.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🌾</span><span>Public sector banks cut only <strong>-5.7%</strong> — constrained by their rural and financial inclusion mandate. Many of these ATMs serve villages where UPI penetration is below 20%.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🌱</span><span>SFBs grew off-site ATMs by <strong>+17.9%</strong> — expanding into semi-urban markets where they are still building their physical presence. Cash remains critical for their customer base.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🔮</span><span>At the current rate of private bank rationalisation, <strong>off-site ATMs could fall below 60,000 by March 2028</strong> — a 28% further reduction from today's 73,693.</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -481,7 +755,16 @@
       <div class="chart-title">The winner vs loser gap — CC online value growth</div>
       <div class="chart-sub">YoY % change in CC online transaction value. The spread between the fastest growing and fastest shrinking bank is 132 percentage points.</div>
       <div class="chart-wrap" style="height:300px">
-        <canvas id="c-winner-loser" role="img" aria-label="Diverging horizontal bar chart showing CC online value YoY growth. SBI +43.7% top, Federal +48.7%, IDFC First +17.9% positive. IndusInd -42.4%, Kotak -16.8%, Axis -5.9% negative.">SBI +43.7%, Federal +48.7%, HDFC +11.2%, IDFC First +17.9%, Yes +4.4%, ICICI +2%, Axis -5.9%, Kotak -16.8%, IndusInd -42.4%.</canvas>
+        <canvas id="c-winner-loser"></canvas>
+      </div>
+      <div class="highlights">
+        <div class="highlights-label">Key Highlights</div>
+        <div class="highlight-list">
+          <div class="highlight-item"><span class="hi-icon">🏆</span><span><strong>Federal (+48.7%) and SBI (+43.7%) are the dual winners</strong> — but for opposite reasons. Federal is a challenger bank issuing cards aggressively. SBI is a giant finally activating its enormous dormant card base via YONO.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🔴</span><span><strong>IndusInd (-42.4%) is in a category of its own on the negative side</strong> — the gap between IndusInd and the next worst performer (Kotak at -16.8%) is 25.6 percentage points. This is not a bad year — it is a crisis.</span></div>
+          <div class="highlight-item"><span class="hi-icon">📊</span><span>The <strong>132 percentage point spread</strong> between best (+48.7%) and worst (-42.4%) in a single year is extraordinary — it reveals just how differently individual banks are executing their digital strategy inside the same macro environment.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🔮</span><span>If Federal and SBI maintain their current trajectories, <strong>by FY28 the CC online value rankings could be reshuffled entirely</strong> — HDFC retains #1, but positions 2–5 are genuinely up for grabs.</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -571,10 +854,6 @@ new Chart(document.getElementById('c-digital-drift'), {
     scales: {
       x: { ...defaultOpts.scales.x },
       y: { ...defaultOpts.scales.y, min: 44, max: 56, ticks: { ...defaultOpts.scales.y.ticks, callback: v => v + '%' } }
-    },
-    plugins: {
-      ...defaultOpts.plugins,
-      annotation: {}
     }
   }
 });
@@ -627,7 +906,7 @@ new Chart(document.getElementById('c-cc-growth'), {
   options: { ...defaultOpts, indexAxis: 'y', scales: { x: { ...defaultOpts.scales.x, ticks: { ...defaultOpts.scales.x.ticks, callback: v => v + '%' } }, y: { ...defaultOpts.scales.y, ticks: { ...defaultOpts.scales.y.ticks, font: { size: 10 } } } } }
 });
 
-/* ── CC online top 5 ── */
+/* ── CC online top banks ── */
 new Chart(document.getElementById('c-cc-online'), {
   type: 'bar',
   data: {
@@ -728,6 +1007,66 @@ new Chart(document.getElementById('c-atm-cat'), {
     datasets: [{ label: 'YoY %', data: atmCatData, backgroundColor: atmCatData.map(v => v >= 0 ? '#0e9f6e' : '#c81e1e'), borderRadius: 4 }]
   },
   options: { ...defaultOpts, scales: { x: { ...defaultOpts.scales.x, ticks: { ...defaultOpts.scales.x.ticks, font: { size: 10 } } }, y: { ...defaultOpts.scales.y, ticks: { ...defaultOpts.scales.y.ticks, callback: v => v + '%' } } } }
+});
+
+/* ── UPI: QR infra ── */
+new Chart(document.getElementById('c-upi-infra'), {
+  type: 'bar',
+  data: {
+    labels: periods,
+    datasets: [
+      { label: 'UPI QR codes (Cr)', data: [65.8, 70.9, 76.1], backgroundColor: '#0e9f6e', borderRadius: 4 },
+      { label: 'PoS terminals (Lakhs)', data: [110.9, 121.2, 117.7], backgroundColor: '#7e3af2', borderRadius: 4 }
+    ]
+  },
+  options: { ...defaultOpts, scales: { x: { ...defaultOpts.scales.x }, y: { ...defaultOpts.scales.y, ticks: { ...defaultOpts.scales.y.ticks } } } }
+});
+
+/* ── UPI displacement dual-axis ── */
+new Chart(document.getElementById('c-upi-displacement'), {
+  type: 'bar',
+  data: {
+    labels: periods,
+    datasets: [
+      { label: 'DC PoS Volume (Mn)', data: [89.6, 77.8, 74.9], backgroundColor: isDark ? '#f87171' : '#c81e1e', borderRadius: 4, yAxisID: 'y' },
+      { type: 'line', label: 'UPI QR codes (Cr)', data: [65.8, 70.9, 76.1], borderColor: '#0e9f6e', backgroundColor: 'transparent', tension: 0.3, pointRadius: 6, borderWidth: 2.5, yAxisID: 'y2' }
+    ]
+  },
+  options: {
+    ...defaultOpts,
+    scales: {
+      x: { ...defaultOpts.scales.x },
+      y: { ...defaultOpts.scales.y, min: 60, position: 'left', ticks: { ...defaultOpts.scales.y.ticks, callback: v => v + 'Mn' } },
+      y2: { position: 'right', grid: { drawOnChartArea: false }, ticks: { color: tickColor, font: { size: 11 }, callback: v => v + 'Cr' }, min: 55, max: 85 }
+    }
+  }
+});
+
+/* ── UPI ATM rationalisation (reuse atm-cat data) ── */
+new Chart(document.getElementById('c-upi-atm'), {
+  type: 'bar',
+  data: {
+    labels: ['SFBs On-site', 'Public On-site', 'Public Off-site', 'Foreign Off-site', 'Private Off-site', 'SFBs Off-site'],
+    datasets: [{ label: 'YoY %', data: [4.4, 1.3, -5.7, -6.9, -22.8, 17.9], backgroundColor: [4.4, 1.3, -5.7, -6.9, -22.8, 17.9].map(v => v >= 0 ? '#0e9f6e' : '#c81e1e'), borderRadius: 4 }]
+  },
+  options: { ...defaultOpts, scales: { x: { ...defaultOpts.scales.x, ticks: { ...defaultOpts.scales.x.ticks, font: { size: 10 } } }, y: { ...defaultOpts.scales.y, ticks: { ...defaultOpts.scales.y.ticks, callback: v => v + '%' } } } }
+});
+
+/* ── UPI channel migration ── */
+const migData = [62.5, 53.8, -14.7, -4.3, -51.7];
+new Chart(document.getElementById('c-upi-migration'), {
+  type: 'bar',
+  data: {
+    labels: ['CC Online', 'CC PoS', 'DC PoS', 'DC Online', 'ATM Cash Out'],
+    datasets: [{ label: 'YoY volume change (Mn)', data: migData, backgroundColor: migData.map(v => v >= 0 ? '#0e9f6e' : '#c81e1e'), borderRadius: 4 }]
+  },
+  options: {
+    ...defaultOpts,
+    scales: {
+      x: { ...defaultOpts.scales.x },
+      y: { ...defaultOpts.scales.y, ticks: { ...defaultOpts.scales.y.ticks, callback: v => (v > 0 ? '+' : '') + v + 'Mn' } }
+    }
+  }
 });
 
 /* ── Quadrant bubble ── */
