@@ -111,20 +111,33 @@
 
   <nav class="nav" id="mainNav">
     <button class="nav-btn active" onclick="showSection('overview')">Overview</button>
+    <button class="nav-btn" onclick="showSection('signals')">Alert Signals</button>
     <button class="nav-btn" onclick="showSection('digital')">Digital vs Cash</button>
     <button class="nav-btn" onclick="showSection('creditcards')">Credit Cards</button>
-    <button class="nav-btn" onclick="showSection('debitcards')">Debit Cards</button>
     <button class="nav-btn" onclick="showSection('upi')">UPI</button>
+    <button class="nav-btn" onclick="showSection('debitcards')">Debit Cards</button>
+    <button class="nav-btn" onclick="showSection('atm')">ATM Trends</button>
     <button class="nav-btn" onclick="showSection('banks')">Bank Heatmap</button>
     <button class="nav-btn" onclick="showSection('maturity')">Maturity Matrix</button>
-    <button class="nav-btn" onclick="showSection('atm')">ATM Trends</button>
-    <button class="nav-btn" onclick="showSection('signals')">Alert Signals</button>
   </nav>
 
   <!-- ═══════════════════════════════════════════════════════ OVERVIEW -->
   <section class="section visible" id="sec-overview">
+
+    <!-- ── HERO MILESTONE CARD ── -->
+    <div style="background: linear-gradient(135deg, rgba(26,86,219,0.12) 0%, rgba(14,159,110,0.10) 100%); border: 1px solid rgba(26,86,219,0.25); border-left: 4px solid #1a56db; border-radius: 10px; padding: 20px 24px; margin-bottom: 20px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#1a56db;margin-bottom:8px">🏆 Historic Milestone — September 2025</div>
+      <div style="font-size:22px;font-weight:800;color:var(--text1);line-height:1.3;margin-bottom:8px">India's first digital-majority month.<br><span style="color:#1a56db">Digital payments crossed ATM cash for the first time in history.</span></div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.6">Digital value hit <strong>₹2.53L Cr</strong> vs ATM cash <strong>₹2.30L Cr</strong> in Sep 2025 — a crossover 15 years in the making. March 2026 shows a seasonal cash rebound, but the structural shift is irreversible. India is now, by value, a digital-first payments economy.</div>
+      <div style="display:flex;gap:24px;margin-top:14px;flex-wrap:wrap">
+        <div><span style="font-size:18px;font-weight:700;color:#0e9f6e">₹2.53L Cr</span><span style="font-size:11px;color:var(--text3);margin-left:6px">Digital — Sep 2025</span></div>
+        <div><span style="font-size:18px;font-weight:700;color:#f59e0b">₹2.30L Cr</span><span style="font-size:11px;color:var(--text3);margin-left:6px">ATM Cash — Sep 2025</span></div>
+        <div><span style="font-size:18px;font-weight:700;color:#1a56db">52.4%</span><span style="font-size:11px;color:var(--text3);margin-left:6px">Digital share at peak</span></div>
+      </div>
+    </div>
+
     <div class="insight-banner">
-      <strong>The big story:</strong> India crossed a historic milestone in September 2025 — digital payments exceeded ATM cash withdrawals in value for the first time. March 2026 shows a partial pull-back (49% digital), but the structural direction is irreversible.
+      <strong>March 2026 snapshot:</strong> Digital share pulled back to 50.9% (seasonal cash demand every year-end), but the crossover is structural. The ATM is not dead — it retreated to larger, less frequent withdrawals. Every trend in this dataset traces back to one force: UPI.
     </div>
     <div class="kpi-grid">
       <div class="kpi">
@@ -181,7 +194,7 @@
         </div>
       </div>
       <div class="chart-card">
-        <div class="chart-title">Transaction volume — where is it going?</div>
+        <div class="chart-title">Transaction volume — Mar 2025 vs Mar 2026 (Crore txns)</div>
         <div class="chart-sub">Lakh transactions per channel, Mar 2025 vs Mar 2026</div>
         <div class="legend">
           <span class="legend-item"><span class="legend-dot" style="background:#1a56db"></span>Mar 2025</span>
@@ -475,7 +488,7 @@
     <div class="story-block">
       <div class="story-card down">
         <div class="story-num">−16.4%</div>
-        <div class="story-desc">DC PoS transaction volume fell YoY. In Mar 2025 there were 895.8 Lakh swipes. By Mar 2026, just 749 Lakh. UPI took them.</div>
+        <div class="story-desc">DC PoS transaction volume fell YoY. In Mar 2025 there were 8.96 Crore swipes. By Mar 2026, just 7.49 Crore. UPI took them.</div>
       </div>
       <div class="story-card up">
         <div class="story-num">+12.7%</div>
@@ -494,15 +507,15 @@
     <div class="chart-row">
       <div class="chart-card">
         <div class="chart-title">DC PoS — the structural decline</div>
-        <div class="chart-sub">Transaction volume (Lakh) — a channel being replaced by UPI</div>
+        <div class="chart-sub">Monthly transaction volume (Crore) — a channel being replaced by UPI</div>
         <div class="chart-wrap" style="height:200px">
           <canvas id="c-dc-pos"></canvas>
         </div>
         <div class="highlights">
           <div class="highlights-label">Key Highlights</div>
           <div class="highlight-list">
-            <div class="highlight-item"><span class="hi-icon">📉</span><span>Volumes fell from <strong>895.8 L → 777.6 L → 749.3 L</strong> — a steady and uninterrupted decline across all three periods. There is no sign of a floor.</span></div>
-            <div class="highlight-item"><span class="hi-icon">📱</span><span>The <strong>146.5 Lakh lost PoS transactions moved to UPI</strong> — the merchant had the same terminal, the customer just chose a different payment method at checkout.</span></div>
+            <div class="highlight-item"><span class="hi-icon">📉</span><span>Volumes fell from <strong>8.96 Cr → 7.78 Cr → 7.49 Cr</strong> — a steady and uninterrupted decline across all three periods. There is no sign of a floor.</span></div>
+            <div class="highlight-item"><span class="hi-icon">📱</span><span>The <strong>1.47 Crore lost PoS transactions moved to UPI</strong> — the merchant had the same terminal, the customer just chose a different payment method at checkout.</span></div>
             <div class="highlight-item"><span class="hi-icon">🏪</span><span>Kirana stores, petrol pumps, and small shops — once the backbone of DC PoS usage — <strong>now show UPI QR codes as the primary tender</strong>. The debit card swipe is becoming a last resort.</span></div>
           </div>
         </div>
@@ -518,7 +531,7 @@
           <div class="highlight-list">
             <div class="highlight-item"><span class="hi-icon">🏛️</span><span><strong>Public sector banks hold 62.9% of all debit cards</strong> (657 Lakh) — almost entirely SBI, PNB, Bank of Baroda. These cards are issued at account opening, not by customer demand.</span></div>
             <div class="highlight-item"><span class="hi-icon">📬</span><span>Payments Banks at 8.3% (86.8 Lakh) are <strong>India Post's financial inclusion engine</strong> — rural accounts with debit cards but negligible PoS usage. Cash remains king for this segment.</span></div>
-            <div class="highlight-item"><span class="hi-icon">💡</span><span>Despite having 104.5 Crore debit cards, <strong>only ~749 Lakh PoS transactions happened</strong> in March 2026 — implying more than 93% of debit cards generated zero PoS usage that month.</span></div>
+            <div class="highlight-item"><span class="hi-icon">💡</span><span>Despite having 104.5 Crore debit cards, <strong>only ~7.5 Crore PoS transactions happened</strong> in March 2026 — implying more than 93% of debit cards generated zero PoS usage that month.</span></div>
           </div>
         </div>
       </div>
@@ -526,14 +539,14 @@
 
     <div class="full-card">
       <div class="chart-title">ATM cash withdrawal volume — the long goodbye</div>
-      <div class="chart-sub">Lakh ATM cash withdrawals per period. Volume is falling; the remaining withdrawals are larger. This is behavioural change, not infrastructure failure.</div>
+      <div class="chart-sub">Monthly ATM cash withdrawal volume (Crore transactions) across three periods. Volume is falling; the remaining withdrawals are larger. This is behavioural change, not infrastructure failure.</div>
       <div class="chart-wrap" style="height:220px">
         <canvas id="c-atm-vol"></canvas>
       </div>
       <div class="highlights">
         <div class="highlights-label">Key Highlights</div>
         <div class="highlight-list">
-          <div class="highlight-item"><span class="hi-icon">🏧</span><span>Volume fell from <strong>4,957 L to a low of 4,371 L in Sep 2025</strong>, then rebounded slightly to 4,440 L in Mar 2026 — the rebound is seasonal (year-end cash demand), not a trend reversal.</span></div>
+          <div class="highlight-item"><span class="hi-icon">🏧</span><span>Volume fell from <strong>49.6 Cr to a low of 43.7 Cr in Sep 2025</strong>, then rebounded to 44.4 Cr in Mar 2026 — the rebound is seasonal (year-end cash demand), not a trend reversal.</span></div>
           <div class="highlight-item"><span class="hi-icon">💰</span><span>Average ticket rose from <strong>₹5,296 to ₹5,595</strong> — each visit now withdraws ₹299 more. People are pre-loading cash for longer periods before their next trip.</span></div>
           <div class="highlight-item"><span class="hi-icon">🔄</span><span>The <strong>"fewer trips, larger amounts" pattern</strong> is the classic adaptation to UPI: ATMs are now used for bulk cash needs (domestic workers, construction wages, weekly market shopping) rather than daily transactions.</span></div>
           <div class="highlight-item"><span class="hi-icon">📊</span><span>Total ATM cash value fell <strong>₹1.4L Cr YoY</strong> — this is real economic substitution, not just fewer withdrawals. Indians are genuinely spending less cash overall.</span></div>
@@ -554,8 +567,8 @@
         <div class="story-desc">UPI QR codes deployed across India as of March 2026 — up +15.7% YoY. Every new QR code is a potential debit card swipe that will never happen.</div>
       </div>
       <div class="story-card down">
-        <div class="story-num">−146.5 L</div>
-        <div class="story-desc">DC PoS transactions lost YoY (895.8L → 749.3L). These didn't vanish — they migrated to UPI QR codes at the same merchant points. UPI absorbed an entire payment channel.</div>
+        <div class="story-num">−1.47 Cr</div>
+        <div class="story-desc">DC PoS transactions lost YoY (8.96 Cr → 7.49 Cr). These didn't vanish — they migrated to UPI QR codes at the same merchant points. UPI absorbed an entire payment channel.</div>
       </div>
       <div class="story-card warn">
         <div class="story-num">6x</div>
@@ -631,7 +644,7 @@
         <div class="highlights">
           <div class="highlights-label">Key Highlights</div>
           <div class="highlight-list">
-            <div class="highlight-item"><span class="hi-icon">🔁</span><span>As UPI QR codes added <strong>10.3 Cr new access points</strong>, DC PoS lost <strong>146.5 Lakh transactions</strong> — a near-perfect inverse relationship. More QR codes = fewer debit card swipes.</span></div>
+            <div class="highlight-item"><span class="hi-icon">🔁</span><span>As UPI QR codes added <strong>10.3 Cr new access points</strong>, DC PoS lost <strong>1.47 Crore transactions</strong> — a near-perfect inverse relationship. More QR codes = fewer debit card swipes.</span></div>
             <div class="highlight-item"><span class="hi-icon">🎯</span><span>The substitution is concentrated in <strong>transactions below ₹500</strong> — everyday chai, auto fares, groceries. UPI owns this segment completely.</span></div>
             <div class="highlight-item"><span class="hi-icon">📊</span><span>The rising <strong>average DC PoS ticket (₹3,249) is further proof</strong> — only larger purchases remain on debit cards. UPI has already taken the small-ticket end of the market.</span></div>
           </div>
@@ -658,7 +671,7 @@
 
     <div class="full-card">
       <div class="chart-title">What UPI is replacing — the channel migration map</div>
-      <div class="chart-sub">YoY volume change by channel, Mar 2025 → Mar 2026. Negative bars = channels losing transactions to UPI. All data in Lakh.</div>
+      <div class="chart-sub">YoY volume change by channel, Mar 2025 → Mar 2026 (Crore transactions). Negative = channels losing volume to UPI.</div>
       <div class="chart-wrap" style="height:240px">
         <canvas id="c-upi-migration"></canvas>
       </div>
@@ -831,7 +844,7 @@
       <div class="story-card" style="border-left: 3px solid #c81e1e">
         <div style="font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#c81e1e;margin-bottom:8px">📉 Debit Card PoS: Free Fall</div>
         <div class="story-num down">−16.4%</div>
-        <div class="story-desc">DC PoS transactions fell <strong>895.8L → 749.3L</strong> and value fell 5.7% YoY. But remaining users spend more — avg PoS ticket rose ₹2,882 → ₹3,250. UPI took the mass market; only higher-value users remain.</div>
+        <div class="story-desc">DC PoS transactions fell <strong>8.96 Cr → 7.49 Cr</strong> and value fell 5.7% YoY. But remaining users spend more — avg PoS ticket rose ₹2,882 → ₹3,250. UPI took the mass market; only higher-value users remain.</div>
       </div>
 
       <div class="story-card" style="border-left: 3px solid #f59e0b">
@@ -964,14 +977,14 @@ new Chart(document.getElementById('c-vol-compare'), {
   data: {
     labels: ['ATM Cash Out', 'CC PoS', 'CC Online', 'DC PoS', 'DC Online'],
     datasets: [
-      { label: 'Mar 2025', data: [4957.2, 2302.7, 2275.7, 895.8, 306.2], backgroundColor: isDark ? '#3b82f6' : '#1a56db', borderRadius: 3 },
-      { label: 'Mar 2026', data: [4440.0, 2840.4, 2901.0, 749.3, 263.1], backgroundColor: isDark ? '#34d399' : '#0e9f6e', borderRadius: 3 }
+      { label: 'Mar 2025', data: [49.6, 23.0, 22.8, 9.0, 3.1], backgroundColor: isDark ? '#3b82f6' : '#1a56db', borderRadius: 3 },
+      { label: 'Mar 2026', data: [44.4, 28.4, 29.0, 7.5, 2.6], backgroundColor: isDark ? '#34d399' : '#0e9f6e', borderRadius: 3 }
     ]
   },
   options: {
     ...defaultOpts, indexAxis: 'y',
     scales: {
-      x: { ...defaultOpts.scales.x, ticks: { ...defaultOpts.scales.x.ticks, callback: v => v + ' L' } },
+      x: { ...defaultOpts.scales.x, ticks: { ...defaultOpts.scales.x.ticks, callback: v => v + ' Cr' } },
       y: { ...defaultOpts.scales.y, ticks: { ...defaultOpts.scales.y.ticks, font: { size: 11 } } }
     }
   }
@@ -1092,9 +1105,9 @@ new Chart(document.getElementById('c-dc-pos'), {
   type: 'bar',
   data: {
     labels: periods,
-    datasets: [{ label: 'DC PoS Vol (L)', data: [895.8, 777.6, 749.3], backgroundColor: ['#c81e1e', '#c81e1e', '#c81e1e'], borderRadius: 4 }]
+    datasets: [{ label: 'DC PoS Vol (Cr)', data: [8.96, 7.78, 7.49], backgroundColor: ['#c81e1e', '#c81e1e', '#c81e1e'], borderRadius: 4 }]
   },
-  options: { ...defaultOpts, scales: { x: { ...defaultOpts.scales.x }, y: { ...defaultOpts.scales.y, min: 650, ticks: { ...defaultOpts.scales.y.ticks, callback: v => v.toFixed(0) + ' L' } } } }
+  options: { ...defaultOpts, scales: { x: { ...defaultOpts.scales.x }, y: { ...defaultOpts.scales.y, min: 6.5, ticks: { ...defaultOpts.scales.y.ticks, callback: v => v.toFixed(2) + ' Cr' } } } }
 });
 
 /* ── DC category donut ── */
@@ -1113,7 +1126,7 @@ new Chart(document.getElementById('c-atm-vol'), {
   data: {
     labels: periods,
     datasets: [
-      { label: 'ATM CW Vol (L)', data: [4957.2, 4370.9, 4440.0], backgroundColor: isDark ? '#3b82f6' : '#1a56db', borderRadius: 4, yAxisID: 'y' },
+      { label: 'ATM CW Vol (Cr)', data: [49.6, 43.7, 44.4], backgroundColor: isDark ? '#3b82f6' : '#1a56db', borderRadius: 4, yAxisID: 'y' },
       { type: 'line', label: 'Avg Ticket (₹)', data: [5296, 5256, 5595], borderColor: '#f59e0b', backgroundColor: 'transparent', tension: 0.3, pointRadius: 6, yAxisID: 'y2', borderWidth: 2.5 }
     ]
   },
@@ -1121,7 +1134,7 @@ new Chart(document.getElementById('c-atm-vol'), {
     ...defaultOpts,
     scales: {
       x: { ...defaultOpts.scales.x },
-      y: { ...defaultOpts.scales.y, min: 4000, position: 'left', ticks: { ...defaultOpts.scales.y.ticks, callback: v => v.toFixed(0) + ' L' } },
+      y: { ...defaultOpts.scales.y, min: 38, position: 'left', ticks: { ...defaultOpts.scales.y.ticks, callback: v => v.toFixed(1) + ' Cr' } },
       y2: { position: 'right', grid: { drawOnChartArea: false }, ticks: { color: tickColor, font: { size: 11 }, callback: v => '₹' + v.toLocaleString('en-IN') }, min: 5000, max: 5800 }
     }
   }
@@ -1183,7 +1196,7 @@ new Chart(document.getElementById('c-upi-displacement'), {
   data: {
     labels: periods,
     datasets: [
-      { label: 'DC PoS Volume (L)', data: [895.8, 777.6, 749.3], backgroundColor: isDark ? '#f87171' : '#c81e1e', borderRadius: 4, yAxisID: 'y' },
+      { label: 'DC PoS Volume (Cr)', data: [8.96, 7.78, 7.49], backgroundColor: isDark ? '#f87171' : '#c81e1e', borderRadius: 4, yAxisID: 'y' },
       { type: 'line', label: 'UPI QR codes (Cr)', data: [65.8, 70.9, 76.1], borderColor: '#0e9f6e', backgroundColor: 'transparent', tension: 0.3, pointRadius: 6, borderWidth: 2.5, yAxisID: 'y2' }
     ]
   },
@@ -1191,7 +1204,7 @@ new Chart(document.getElementById('c-upi-displacement'), {
     ...defaultOpts,
     scales: {
       x: { ...defaultOpts.scales.x },
-      y: { ...defaultOpts.scales.y, min: 600, position: 'left', ticks: { ...defaultOpts.scales.y.ticks, callback: v => v.toFixed(0) + ' L' } },
+      y: { ...defaultOpts.scales.y, min: 6, position: 'left', ticks: { ...defaultOpts.scales.y.ticks, callback: v => v.toFixed(2) + ' Cr' } },
       y2: { position: 'right', grid: { drawOnChartArea: false }, ticks: { color: tickColor, font: { size: 11 }, callback: v => v + 'Cr' }, min: 55, max: 85 }
     }
   }
@@ -1219,7 +1232,7 @@ new Chart(document.getElementById('c-upi-migration'), {
     ...defaultOpts,
     scales: {
       x: { ...defaultOpts.scales.x },
-      y: { ...defaultOpts.scales.y, ticks: { ...defaultOpts.scales.y.ticks, callback: v => (v > 0 ? '+' : '') + v.toFixed(0) + ' L' } }
+      y: { ...defaultOpts.scales.y, ticks: { ...defaultOpts.scales.y.ticks, callback: v => (v > 0 ? '+' : '') + v.toFixed(1) + ' Cr' } }
     }
   }
 });
@@ -1382,8 +1395,8 @@ new Chart(document.getElementById('c-sig-dcpos'), {
     labels: ["Mar '25", "Sep '25", "Mar '26"],
     datasets: [
       {
-        label: 'DC PoS Vol (L txns)',
-        data: [895.8, 777.6, 749.3],
+        label: 'DC PoS Vol (Cr txns)',
+        data: [8.96, 7.78, 7.49],
         backgroundColor: 'rgba(200,30,30,0.6)',
         borderRadius: 4,
         yAxisID: 'y'
